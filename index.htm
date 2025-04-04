@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile-Boo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="profile-card">
+            <div class="profile-card-img">
+                <img src="cat2.jpg" alt="">
+            </div>
+            <div class="profile-card-info">
+                <div class="name">Thanh Danh</div>
+                <div class="position">Developer/Coder</div>
+                <div class="location">
+                    <i class="fa-solid fa-map-location"></i>  Tra Vinh
+                </div>
+            </div>
+            <div class="profile-card-social">
+                <a href="https://www.facebook.com/thnhdanh2o7/" class="item facebook" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a href="https://discord.gg/adontop" class="item discord" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
+                  </a>  
+                  <a href="https://github.com/DPHub-CR" class="item github" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                  </a> 
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <audio autoplay loop>
+        <source src="11.mp3" type="audio/mpeg">
+        Trình duyệt của bạn không hỗ trợ audio.
+      </audio>      
+
+    <script>
+        const cursorDot = document.getElementById("cursorDot");
+    
+        document.addEventListener("mousemove", e => {
+          const x = e.clientX;
+          const y = e.clientY;
+    
+          cursorDot.style.left = x + "px";
+          cursorDot.style.top = y + "px";
+    
+          const fire = document.createElement("div");
+          fire.classList.add("fire");
+          fire.style.left = x + "px";
+          fire.style.top = y + "px";
+    
+          document.body.appendChild(fire);
+    
+          setTimeout(() => {
+            fire.remove();
+          }, 800);
+        });
+      </script>
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background: #111;
+          height: 100vh;
+          overflow: hidden;
+          cursor: none;
+        }
+    
+        .fire {
+          position: fixed;
+          width: 8px;
+          height: 8px;
+          background: radial-gradient(circle, orange, red, rgba(0, 0, 0, 0));
+          border-radius: 50%;
+          pointer-events: none;
+          animation: flame 0.8s ease-out forwards;
+          z-index: 9999;
+        }
+    
+        @keyframes flame {
+          0% {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1) translateY(0);
+          }
+          100% {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.5) translateY(-40px);
+          }
+        }
+    
+        .cursor-dot {
+          position: fixed;
+          width: 6px;
+          height: 6px;
+          background: yellow;
+          border-radius: 50%;
+          pointer-events: none;
+          transform: translate(-50%, -50%);
+          z-index: 10000;
+          box-shadow: 0 0 10px orange;
+        }
+      </style>
+</body>
+</html>
